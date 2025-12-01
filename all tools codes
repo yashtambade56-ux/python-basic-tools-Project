@@ -1,0 +1,164 @@
+python-mini-projects/
+│
+├── all_tools.py
+├── Calculator.py
+├── PasswordGenerator.py
+├── UnitConverter.py
+├── ToDoList.py
+└── RandomNumberGenerator.py
+
+
+all_tools.py
+
+==========( main )==========
+
+print("this is project file with 5 basic projects")
+print("1. calculater")
+print("2. Password Generator")
+print("3. Unit Converter")
+print("4. To-Do List")
+print("5. Random Number Generator")
+print("6. Exit")
+
+choice = input("enter your choice(1/2/3/4/5/6): ")
+
+if choice == '1':
+    import Calculator
+elif choice == '2':
+    import PasswordGenerator
+elif choice == '3':
+    import UnitConverter
+elif choice == '4':
+    import ToDoList
+elif choice == '5':
+    import RandomNumberGenerator
+elif choice == '6':
+    print("Exiting the program.")
+else:
+    print("Invalid input")
+
+
+=======( Calculator )=======
+
+print("enter the numbers for calculetion")
+print("1. add")
+print("2. sub")
+print("3. mul")
+print("4. div")
+print("5. square")
+choice = input("enter your choice(1/2/3/4/5): ")
+
+num1 = int(input("enter first number: "))
+num2 = int(input("enter second number: "))
+
+if choice == '1':
+    result = num1 + num2
+    operation = "add"
+elif choice == '2':
+    result = num1 - num2
+    operation = "sub"
+elif choice == '3':
+    result = num1 * num2
+    operation = "mul"
+elif choice == '4':
+    result = num1 / num2
+    operation = "div"
+elif choice == '5':
+    result = num1 ** 2
+    operation = "square"
+else:
+    result = "Invalid input"
+    operation = "none"
+
+print(f"The result of {operation}ing {num1} and {num2} is: {result}")  
+
+
+===( Password Generator )===
+
+print("This is the Password Generator project")
+import random
+import string
+def generate_password(length=12):
+
+    list1 = string.ascii_lowercase
+    list2 = string.ascii_uppercase
+    list3 = string.digits
+    list4 = string.punctuation
+    combined_list = list1 + list2 + list3 + list4
+    password = ''.join(random.sample(combined_list, length))
+    return password
+
+print("Your Generated Password:", generate_password(12))
+
+
+=====( Unit Converter )=====
+
+print("this is unit converter project")
+print("1. Kilometers to Miles")
+print("2. Miles to Kilometers")
+print("3. Centimeters to Meters")
+print("4. Kilograms to Grams")
+print("5. Celsius to Fahrenheit")
+print("6. Minutes to Seconds")
+
+choice = input("Enter your choice (1/2/3/4/5/6): ")
+value = float(input("Enter the value to convert: "))
+if choice == '1':
+    converted_value = value * 0.621371
+    unit_from = "Kilometers"
+    unit_to = "Miles"
+elif choice == '2':
+    converted_value = value / 0.621371
+    unit_from = "Miles"
+    unit_to = "Kilometers"
+elif choice == '3':
+    converted_value = value / 100
+    unit_from = "Centimeters"
+    unit_to = "Meters"
+elif choice == '4':
+    converted_value = value * 1000
+    unit_from = "Kilograms"
+    unit_to = "Grams"
+elif choice == '5':
+    converted_value = (value * 9/5) + 32
+    unit_from = "Celsius"
+    unit_to = "Fahrenheit"
+elif choice == '6':
+    converted_value = value * 60
+    unit_from = "Minutes"
+    unit_to = "Seconds"
+else:
+    converted_value = None
+    unit_from = ""
+    unit_to = ""
+
+if converted_value is not None:
+    print(f"{value} {unit_from} is equal to {converted_value} {unit_to}")
+else:
+    print("Invalid choice. Please select a valid option.")
+
+
+=======( to-do list )=======
+
+print("this is to-do list project")
+list = int(input("enter number of tasks you want to add: "))
+tasks = []
+
+for i in range(list):
+    tasks.append(input(f"Task {i+1}: "))
+
+print("\nYour Tasks:")
+for i, t in enumerate(tasks, 1):
+    print(f"{i}. {t}")
+
+print("All tasks added successfully!")
+
+
+=( random number generator )=
+
+print("this is random number generator project")
+import random
+lower = int(input("Enter the smallest possible value: "))
+upper = int(input("Enter the largest possible value: "))
+random_number = random.randint(lower, upper)
+print(f"Random number between {lower} and {upper} is: {random_number}")
